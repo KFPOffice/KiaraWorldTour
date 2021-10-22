@@ -1,6 +1,6 @@
 import { FaBars } from "react-icons/fa";
 
-import "./../styles/NavigationBar.css"
+import "./../styles/navigationBar.css"
 
 export default function NavigationBar(props) {
 
@@ -26,7 +26,7 @@ export default function NavigationBar(props) {
                     Sign In
                 </a>
                 <div className="nav-buthrefn" NavBtn>
-                    <div className="nav-buthrefn" href="/sign-up">Sign Up</div>
+                    <a className="nav-buthrefn" href="/sign-up">Sign Up</a>
                 </div>
             </div> 
            </nav> 

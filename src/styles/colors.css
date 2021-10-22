@@ -1,0 +1,11 @@
+:root {
+    --primary-color:#30A9D9;
+    --primary-color-light:#41BDD9;
+    --accent-color-light:#F2AC57;
+    --accent-color:#F24E29;
+
+    --accent-color-analogousish:#F28066;
+    --accent-color-analogousish-content:#fff;
+    --accent-color-analogousish-content-contrast: #808080;
+    --accent-color-analogousish-active:#000;
+}
