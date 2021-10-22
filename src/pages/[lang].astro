@@ -2,6 +2,7 @@
 import en from "./../translations/en.json";
 import hu from "./../translations/hu.json";
 import { Markdown } from 'astro/components';
+import NavigationBar from './../components/NavigationBar.jsx';
 
 export async function getStaticPaths() {
   return [
@@ -15,8 +16,10 @@ console.log(item);
 ---
 <html lang={lang}>
   <head>
-    <title>{item.title}</head>
+    <title>{item.title}</title>
+    </head>
   <body>
+    <NavigationBar title={item.title}/>
     <h1>{item.title}</h1>
     <article>
       <h2>{item.whatsThisTitle}</h2>

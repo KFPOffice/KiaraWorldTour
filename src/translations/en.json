@@ -4,7 +4,7 @@
     "whatareVtubersTitle": "What are Virtual Youtubers/Vtubers",
     "conventionsTitle": "Why should Anime Conventions care about them",
     "helpVtubersTitle": "How to help Vtubers attend Cons",
-    "whatsThisContent": "## Markdown\n just something.. \n not the best json doesnt have multiline string.",
+    "whatsThisContent": "## Markdown\n just something.. \n not the best json doesnt have multiline string.\n\n seems to work with double new lines for some reason....",
     "whatareVtubersContent": "## Markdown",
     "conventionsContent": "## Markdown",
     "helpVtubersContent": "## Markdown"
