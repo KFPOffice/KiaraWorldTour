@@ -1,9 +1,19 @@
 ---
+
+// - Importing styles
 import "./../styles/index.css"
+
+// - Importing text content
 import en from "./../translations/en.json";
 import hu from "./../translations/hu.json";
+
+// - Importing images
+import banner from "./../images/bannerk.webp"
+
+// - Importing components
 import { Markdown } from 'astro/components';
 import NavigationBar from './../components/navigationBar.jsx';
+import Hero from './../components/hero.jsx'
 
 export async function getStaticPaths() {
   return [
@@ -21,6 +31,7 @@ console.log(item);
     </head>
   <body>
     <NavigationBar title={item.title}/>
+    <Hero minHeight={'200px'} backgroundImage={banner}/>
     <h1>{item.title}</h1>
     <article>
       <h2>{item.whatsThisTitle}</h2>
