@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Colours */
+  --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
+  
+
+  --kiara-orange: #FF9120;
+
+  /* Constraints */
+  --max-width: 1080px;
+
+  /* Spacing */
+  --x-space: 20px;
+  --m-space: 8px;
+  --s-space: 4px;
+}
+
+body {
+  background-color: red;
+  font-family: 'Inter', Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
