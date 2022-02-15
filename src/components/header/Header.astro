@@ -1,65 +1,115 @@
 ---
 import logo from './kiara-toru.png';
+import hamburger from './hamburger.svg';
+import Modal from '../modal/Modal.astro';
 
 ---
-<style>
+<style lang="scss">
   .root {
-    height: 60px;
+    --height: 80px;
+    --mobile-height: 60px;
+
+    position: relative;
+    height: var(--height);
     width: 100%;
     background-color: var(--white);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 30px 60px -30px rgba(0, 0, 0, 0.3);
-
     display: flex;
     justify-content: center;
-  }
 
-  .header {
-    width: 100%;
-    max-width: var(--max-width);
+    .header {
+      width: 100%;
+      max-width: var(--max-width);
 
-    display: flex;
-    justify-content: space-between;
-  }
+      display: flex;
+      justify-content: space-between;
 
-  .logo {
-    object-fit: cover;
-    max-width: 100%;
-    max-height: 100%;
-  }
+      .logo-link {
+        padding: 10px 0;
+        .logo {
+          object-fit: cover;
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
 
-  .controls {
-    display: flex;
-    align-items: center;
-    column-gap: 48px;
-  }
+      .controls {
+        display: flex;
+        align-items: center;
+        column-gap: 48px;
+      }
+    }
 
-  .controls > a {
-    text-decoration: none;
-    font-weight: 700;
-    color: var(--black);
-    font-size: 12px;
-    line-height: 14px;
-  }
-  .controls > a:hover {
-    text-decoration: none;
-    color: var(--kiara-orange);
-  }
+    .mobile-links > a,
+    .controls > a {
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--black);
+      font-size: 12px;
+      line-height: 14px;
+    }
+    .mobile-links > a:hover,
+    .controls > a:hover {
+      text-decoration: none;
+      color: var(--kiara-orange);
+    }
 
-  .mobile-controls {
-    visibility: hidden;
+    .mobile-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: var(--m-space);
+      padding-bottom: var(--x-space);
+      row-gap: var(--x-space);
+    }
+
+    .open-menu {
+      padding: 10px;
+    }
+
+    :global(.mobile-menu) {
+      visibility: hidden;
+    }
+
+    @media (max-width: 800px)  {
+      & {
+        position: fixed;
+        top: 0;
+        height: var(--mobile-height);
+      }
+
+      :global(.mobile-menu) {
+        visibility: visible;
+      }
+
+      .header { 
+        padding: 0 var(--x-space);
+
+        .controls {
+          display: none;
+        }
+      }
+    }
   }
 </style>
 
 <header class="root">
   <div class="header">
-    <a href="#" >
+    <a href="#" class="logo-link">
       <img src={logo} class="logo" />
     </a>
     <div class="controls">
       <a href="#contact-con">How to contact your local convention?</a>
       <a href="#contact-cover">How to get holoEN at your convention?</a>
       <a href="#about-us">About us</a>
-    </div> 
-    <div class="mobile-controls">mobile</div>
+    </div>
+    <Modal id="mobile-menu" className="mobile-menu">
+      <div slot="button" class="open-menu"><img src={hamburger} /></div>
+      <div class="mobile-links">
+        <a href="#contact-con">How to contact your local convention?</a>
+        <a href="#contact-cover">How to get holoEN at your convention?</a>
+        <a href="#about-us">About us</a>
+      </div>
+    </Modal>
   </div>
 </header>

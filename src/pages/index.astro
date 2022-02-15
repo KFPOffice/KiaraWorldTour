@@ -9,7 +9,6 @@ const translation = translations[lang] || translations.en;
 
 const response = await fetch('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 const font = await response.text()
-console.log('f?', font);
 
 ---
 <style>
@@ -17,12 +16,19 @@ console.log('f?', font);
     margin: 0;
   }
 
+  article {
+    height: 500px;
+  }
+
 </style>
 
 <html lang={lang}>
   <head>
-    <link rel="stylesheet" type="text/css" href={Astro.resolve('../global.css')} />
+    <title>Project Kiara World Tour</title>
+    <meta name="description" content="Project Kiara World Tour helping bring VTubers to conventions">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" type="text/css" href={Astro.resolve('../global.css')} />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 

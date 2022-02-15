@@ -1,0 +1,64 @@
+---
+
+const { id, className } = Astro.props;
+
+---
+<style lang="scss">
+  .root {
+    display: flex;
+    align-items: center;
+
+    .open-label {
+      display: block;
+      cursor: pointer;
+    }
+    .close-label {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.3)
+    }
+
+    .state {
+      display: none;
+    }
+
+    .modal {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      background-color: var(--white);
+
+      padding: var(--x-space);
+      border-radius: 0 var(--m-border-radius) 0;
+      box-shadow: var(--modal-shadow);
+    }
+
+    .state:checked {
+      ~ .modal {
+        display: block;
+      }
+
+      ~ .close-label {
+      display: block;
+      }
+    }
+  }
+</style>
+
+<div class={`root ${className || ''}`}>
+  <input class="state" id={id} type="checkbox" />
+  <label class="open-label" for={id}>
+    <slot name="button" />
+  </label>
+  <label class="close-label" for={id} />
+  <div class="modal">
+    <slot />
+  </div>
+</div>
