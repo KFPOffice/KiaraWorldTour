@@ -5,12 +5,14 @@
   --white: rgb(255, 255, 255);
   --black: rgb(0, 0, 0);
   --kiara-orange: #FF9120;
+  --kiara-blue: #79CCEF;
 
   /* Constraints */
   --max-width: 1080px;
   --mobile-width: 800px;
 
   /* Spacing */
+  --xxx-spacing: 60px;
   --x-space: 20px;
   --m-space: 8px;
   --s-space: 4px;

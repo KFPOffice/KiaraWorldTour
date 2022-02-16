@@ -1,11 +1,11 @@
 ---
-import translations from './../translations/translations.js'
+import getTranslations from './../translations/translations.js';
 import { Markdown } from 'astro/components';
-import Header from '../components/header/Header.astro'
-
+import Header from '../components/header/Header.astro';
+import Hero from '../components/hero/Hero.astro';
 
 const {lang: lang } = Astro.props;
-const translation = translations[lang] || translations.en;
+const translation = getTranslations(lang);
 
 const response = await fetch('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 const font = await response.text()
@@ -14,6 +14,12 @@ const font = await response.text()
 <style>
   body {
     margin: 0;
+  }
+
+  @media (max-width: 800px)  {
+    body {
+      margin-top: 60px;
+    }
   }
 
   article {
@@ -35,8 +41,7 @@ const font = await response.text()
   </head>
   <body> 
     <Header translation={translation} />
-
-    <h1>{translation.title}</h1>
+    <Hero translation={translation} />
     <article>
       <h2>{translation.whatsThisTitle}</h2>
       <Markdown content={translation.whatsThisContent}/>

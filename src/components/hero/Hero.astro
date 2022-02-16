@@ -1,0 +1,82 @@
+---
+import logo from './background.png';
+
+---
+<style lang="scss">
+  @keyframes opacity-flick {
+    0% {
+      opacity: 0.5;
+      transform: translateX(0);
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.5;
+      transform: translateX(-24px);
+    }
+  }
+
+  .hero {
+    position: relative;
+    background-color: orange;
+    min-height: var(--xxx-spacing);
+    height: 100%;
+
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      background: linear-gradient(90deg, rgba(251,114,75,1) 0%, rgba(41,190,249,1) 100%);
+
+      .background-tile {
+        --bg-size: 40px;
+
+        position: absolute;
+        width: calc(100% + var(--bg-size));
+        height: 100%;
+        background: url('./tile.png');
+        background-repeat: repeat;
+        background-size: var(--bg-size);
+
+        animation: opacity-flick linear 3s infinite;
+      }
+    }
+
+    .hero-title {
+      margin: 0 auto;
+      transform: translate(0, var(--xxx-spacing));
+      aspect-ratio: 650/325;
+      max-width: 650px;
+      background-color: red;
+
+      background-color: var(--kiara-blue);
+
+      border: 3px solid var(--white);
+      box-shadow: var(--modal-shadow);
+      overflow: hidden;
+
+      .kiara-header {
+        max-height: 650px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+  }
+
+</style>
+<section class="hero">
+  <div class="background">
+    <div class="background-tile" />
+  </div>
+  <div class="hero-title">
+    <div class="kiara-header">
+      <img src={logo} />
+    </div>
+  </div>
+</section>
