@@ -20,11 +20,17 @@ import Modal from '../modal/Modal.astro';
     .header {
       width: 100%;
       max-width: var(--max-width);
-
       display: flex;
       justify-content: space-between;
 
+      .logo-link,
+      :global(.mobile-menu) {
+        width: 60px;
+      }
+
       .logo-link {
+        display: block;
+
         padding: 10px 0;
         .logo {
           object-fit: cover;
@@ -38,6 +44,8 @@ import Modal from '../modal/Modal.astro';
         align-items: center;
         column-gap: 48px;
       }
+
+
     }
 
     .mobile-links > a,
