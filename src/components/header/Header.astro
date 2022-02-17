@@ -3,6 +3,8 @@ import logo from './kiara-toru.png';
 import hamburger from './hamburger.svg';
 import Modal from '../modal/Modal.astro';
 
+const { translation } = Astro.props;
+
 ---
 <style lang="scss">
   .root {
@@ -108,16 +110,16 @@ import Modal from '../modal/Modal.astro';
       <img src={logo} class="logo" />
     </a>
     <div class="controls">
-      <a href="#contact-con">How to contact your local convention?</a>
-      <a href="#contact-cover">How to get holoEN at your convention?</a>
-      <a href="#about-us">About us</a>
+      <a href="#contact-con">{translation.contactConLink}</a>
+      <a href="#contact-cover">{translation.contactCoverLink}</a>
+      <a href="#about-us">{translation.aboutUsLink}</a>
     </div>
     <Modal id="mobile-menu" className="mobile-menu">
       <div slot="button" class="open-menu"><img src={hamburger} /></div>
       <div class="mobile-links">
-        <a href="#contact-con">How to contact your local convention?</a>
-        <a href="#contact-cover">How to get holoEN at your convention?</a>
-        <a href="#about-us">About us</a>
+        <a href="#contact-con">{translation.contactConLink}</a>
+        <a href="#contact-cover">{translation.contactCoverLink}</a>
+        <a href="#about-us">{translation.aboutUsLink}</a>
       </div>
     </Modal>
   </div>
