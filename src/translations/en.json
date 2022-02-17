@@ -1,11 +1,19 @@
 {
-    "title": "Kiara World Tour",
-    "whatsThisTitle": "What’s this site?",
-    "whatareVtubersTitle": "What are Virtual Youtubers/Vtubers",
-    "conventionsTitle": "Why should Anime Conventions care about them",
-    "helpVtubersTitle": "How to help Vtubers attend Cons",
-    "whatsThisContent": "## Markdown\n just something.. \n not the best json doesnt have multiline string.",
-    "whatareVtubersContent": "## Markdown",
-    "conventionsContent": "## Markdown",
-    "helpVtubersContent": "## Markdown"
+  "title": "Kiara World Tour",
+  "whatsThisTitle": "What’s this site?",
+  "whatareVtubersTitle": "What are Virtual Youtubers/Vtubers",
+  "conventionsTitle": "Why should Anime Conventions care about them",
+  "helpVtubersTitle": "How to help Vtubers attend Cons",
+  "whatsThisContent": "## Markdown\n just something.. \n not the best json doesnt have multiline string.",
+  "whatareVtubersContent": "## Markdown",
+  "conventionsContent": "## Markdown",
+  "helpVtubersContent": "## Markdown",
+
+  "aboutUs": "About Us",
+  "aboutUsDesc": "This website is a fanmade effort to make it easier for VTuber fans to invite their favorite VTuber to anime conventions and to give a guideline for conventions on how to contact them. We focus on Hololive EN, but this site should prove useful for other VTuber agencies and indies as well.",
+  "credits": "This website was made with the help of volunteers!",
+  "cover": "Cover",
+  "coverDisclaimer": "Project Kiara World Tour isn’t endorsed by Cover Corporation and doesn’t reflect the views or opinions of Cover Corporation or anyone officially involved in producing or managing Hololive. Hololive and Cover Coporation are trademarks or registered trademarks of Cover Corporation.",
+  "closingL1": "and in german we say,",
+  "closingL2": "auf wiedersehen"
 }

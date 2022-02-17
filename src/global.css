@@ -3,9 +3,18 @@
 :root {
   /* Colours */
   --white: rgb(255, 255, 255);
+  --light-white: rgba(255, 255, 255, 0.75);
+  --light-grey: rgba(184, 184, 184, 0.75);
   --black: rgb(0, 0, 0);
   --kiara-orange: #FF9120;
   --kiara-blue: #79CCEF;
+  --ina-blue: #040023;
+
+  /* Fonts */
+  --size-h1: 30px;
+  --size-primary: 18px;
+  --size-h2: 16px;
+  --size-small: 12px;
 
   /* Constraints */
   --max-width: 1080px;
@@ -13,9 +22,11 @@
 
   /* Spacing */
   --xxx-spacing: 60px;
-  --x-space: 20px;
-  --m-space: 8px;
-  --s-space: 4px;
+  --xx-spacing: 40px;
+  --x-spacing: 20px;
+  --l-spacing: 12px;
+  --m-spacing: 8px;
+  --s-spacing: 4px;
 
   /* Border Radius */
   --x-border-radius: 8px;
@@ -24,11 +35,10 @@
 
   /* Shadows */
   --modal-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 30px 60px -30px rgba(0, 0, 0, 0.3);
-}
 
-body {
-  background-color: red;
-  font-family: 'Inter', Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /* z-index's */
+  --z-header: 10;
+  --z-modal: 100;
 }
 
 * {

@@ -1,0 +1,158 @@
+---
+import twitter from './2021 Twitter logo - white.png';
+import discord from './Discord-Logo-White.png';
+import youtube from './yt_icon_mono_dark.png';
+
+const { translation } = Astro.props;
+
+---
+<style lang="scss">
+  .footer {
+    background-color: var(--ina-blue);
+    color: var(--light-white);
+    display: flex;
+    row-gap: var(--xxx-spacing);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--xx-spacing) 0;
+
+    .break {
+      width: 143px;
+      height: 1px;
+      background-color: rgba(222, 218, 255, 0.47);;
+      border: none;
+    }
+
+    .info-sections {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: 32px;
+      align-items: center;
+      max-width: calc(var(--max-width) / 1.5);
+
+      .about-us,
+      .credits,
+      .cover {
+        display: flex;
+        flex-direction: column;
+        row-gap: var(--size-small);
+
+        h2 {
+          font-size: var(--size-h2);
+          margin: 0;
+        }
+
+        p {
+          font-size: var(--size-small);
+          margin: 0;
+        }
+      }
+
+      .about-us {
+        .socials {
+          margin-top: var(--l-spacing);
+          display: flex;
+          justify-content: center;
+          column-gap: var(--m-spacing);
+
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            padding: 8px;
+            border: 1px solid var(--light-white);
+            border-radius: var(--m-border-radius);
+            transition: 0.3s ease-in border-color;
+
+            img {
+              max-height: 100%;
+              max-width: 100%;
+            }
+
+            &:hover {
+              border-color: var(--white);
+            }
+          }
+
+        }
+
+      }
+    }
+
+    .credits {
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        row-gap: var(--s-spacing);
+        margin: 0;
+        padding: 0;
+        font-size: var(--size-small);
+
+        .job {
+          color: var(--light-grey);
+          margin-left: var(--s-spacing);
+        }
+      }
+    }
+
+    .sayonara {
+      p {
+        margin: 0;
+      }
+      .l1 {
+        color: var(--light-white);
+        margin-bottom: var(--s-spacing);
+      }
+      .l2 {
+        font-style: italic;
+        color: white;
+      }
+    }
+  }
+</style>
+<footer class="footer">
+  <div class="info-sections">
+    <div class="about-us">
+      <h2>{translation.aboutUs}</h2>
+      <p>{translation.aboutUsDesc}</p>
+      <div class="socials">
+        <a href="https://discord.gg/AVsaMt2b8Q">
+          <img src={discord} />
+        </a>
+        <!-- <a href="https://youtube.com/KFP_TheOffice">
+          <img src={youtube} />
+        </a> -->
+        <a href="https://twitter.com/KFP_TheOffice">
+          <img src={twitter} />
+        </a>
+      </div>
+    </div>
+    <hr class="break" />
+    <div class="credits">
+      <h2>{translation.credits}</h2>
+      <ul class="list">
+        <li>Mr. Chicken<span class="job">(Project Management, Developer)</span></li>
+        <li>Ms. Chicken<span class="job">(Artist)</span></li>
+        <li>Herr Húhn<span class="job">(French Translations)</span></li>
+        <li>Frau Húhn<span class="job">(Spanish Translation)</span></li>
+        <li>鶏くん<span class="job">(Bird Translations)</span></li>
+        <li>鶏ちゃん<span class="job">(Developer)</span></li>
+      </ul>
+    </div> 
+    <hr class="break" />
+    <div class="cover">
+      <h2>{translation.cover}</h2>
+      <p>{translation.coverDisclaimer}</p>
+    </div>
+  </div>
+  <div class="sayonara">
+    <p class="l1">{translation.closingL1}</p>
+    <p class="l2">{translation.closingL2}</p>
+  </div>
+</footer>

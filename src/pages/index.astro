@@ -3,6 +3,7 @@ import getTranslations from './../translations/translations.js';
 import { Markdown } from 'astro/components';
 import Header from '../components/header/Header.astro';
 import Hero from '../components/hero/Hero.astro';
+import Footer from '../components/footer/Footer.astro';
 
 const {lang: lang } = Astro.props;
 const translation = getTranslations(lang);
@@ -13,7 +14,16 @@ const font = await response.text()
 ---
 <style>
   body {
+    font-family: 'Inter', Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contents {
+    flex-grow: 1;
   }
 
   @media (max-width: 800px)  {
@@ -42,19 +52,22 @@ const font = await response.text()
   <body> 
     <Header translation={translation} />
     <Hero translation={translation} />
-    <article>
-      <h2>{translation.whatsThisTitle}</h2>
-      <Markdown content={translation.whatsThisContent}/>
-    </article>
-      <h2>{translation.whatareVtubersTitle}</h2>
-      <Markdown content={translation.whatareVtubersContent}/>
-    <article>
-      <h2>{translation.conventionsTitle}</h2>
-      <Markdown content={translation.conventionsContent}/>
-    </article>
-    <article>
-      <h2>{translation.helpVtubersTitle}</h2>
-      <Markdown content={translation.helpVtubersContent}/>
-    </article>
+    <div class="contents">
+      <article>
+        <h2>{translation.whatsThisTitle}</h2>
+        <Markdown content={translation.whatsThisContent}/>
+      </article>
+        <!-- <h2>{translation.whatareVtubersTitle}</h2>
+        <Markdown content={translation.whatareVtubersContent}/> -->
+      <!-- <article>
+        <h2>{translation.conventionsTitle}</h2>
+        <Markdown content={translation.conventionsContent}/>
+      </article> -->
+      <!-- <article>
+        <h2>{translation.helpVtubersTitle}</h2>
+        <Markdown content={translation.helpVtubersContent}/>
+      </article> -->
+    </div>
+    <Footer translation={translation} />
   </body>
 </html>

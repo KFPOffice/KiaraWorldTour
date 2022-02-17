@@ -58,9 +58,9 @@ import Modal from '../modal/Modal.astro';
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      padding-top: var(--m-space);
-      padding-bottom: var(--x-space);
-      row-gap: var(--x-space);
+      padding-top: var(--m-spacing);
+      padding-bottom: var(--x-spacing);
+      row-gap: var(--x-spacing);
     }
 
     .open-menu {
@@ -74,6 +74,7 @@ import Modal from '../modal/Modal.astro';
     @media (max-width: 800px)  {
       & {
         position: fixed;
+        z-index: var(z-header);
         top: 0;
         height: var(--mobile-height);
       }
@@ -83,7 +84,7 @@ import Modal from '../modal/Modal.astro';
       }
 
       .header { 
-        padding: 0 var(--x-space);
+        padding: 0 var(--x-spacing);
 
         .controls {
           display: none;
