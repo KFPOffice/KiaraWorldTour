@@ -10,7 +10,7 @@ export default function getTranslations(lang) {
   const language = translations[lang] || {};
 
   return {
-    ...en, // Use en as a fallback in case the loaded language is missing any translations.
-    language,
+    ...en, // Use en as a fallback in case there are translations missing for the desired language.
+    ...language,
   };
 }

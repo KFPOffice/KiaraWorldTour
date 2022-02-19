@@ -1,0 +1,52 @@
+---
+const p = Astro.props;
+---
+<style lang="scss">
+  .big-link {
+    position: relative;
+    --fade-in: 0.3s ease-in;
+
+    color: var(--ina-light-purple);
+    fill: var(--ina-light-purple);
+    font-size: var(----size-h2);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    column-gap: var(--l-spacing);
+    cursor: pointer;
+    padding: var(--s-spacing) 0;
+
+    transition: color var(--fade-in);
+    overflow: visible;
+
+    svg {
+      width: var(----size-h2);
+      min-height: var(----size-h2);
+      transition: fill var(--fade-in);
+    }
+
+    &:hover {
+      &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--ina-v-light-purple);
+        border-radius: var(--x-border-radius);
+
+        /* Need to transform it left to account for the extra padding.
+          Padding is necessary for hover-state background. */
+        padding: var(--s-spacing) var(--l-spacing);
+        transform: translateX(calc(-1 * var(--l-spacing)));
+      }
+    }
+  }
+</style>
+
+<a {...p}  class={`big-link ${p.class}`}>
+  <slot />
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/>
+  </svg>
+</a>

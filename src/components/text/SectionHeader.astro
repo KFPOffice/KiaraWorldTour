@@ -1,0 +1,23 @@
+---
+
+---
+<style lang="scss">
+  .section-header {
+    color: var(--black);
+    font-size: var(--size-h1);
+    font-weight: normal;
+    margin: 0;
+
+    :global(em) {
+      display: block;
+      white-space: initial;
+      font-size: var(--size-h1x);
+      font-style: normal;
+      font-weight: bold;
+    }
+  }
+</style>
+
+<h1 class="section-header">
+  <slot />
+</h1>

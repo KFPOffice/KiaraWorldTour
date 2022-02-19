@@ -1,0 +1,23 @@
+---
+const p = Astro.props;
+
+---
+<style lang="scss">
+  .section {
+    display: flex;
+    justify-content: center;
+
+    .wrapper {
+      flex: 1 1 auto;
+      max-width: var(--max-width);
+      padding: var(--xxx-spacing) var(--m-spacing);
+    }
+  }
+
+</style>
+
+<section {...p} class={`section ${p.class}`}>
+  <div class="wrapper">
+    <slot />
+  </div>
+</section>

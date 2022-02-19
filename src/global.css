@@ -8,10 +8,15 @@
   --black: rgb(0, 0, 0);
   --kiara-orange: #FF9120;
   --kiara-blue: #79CCEF;
+  --kiara-light-blue: #EDFAFF;
   --ina-blue: #040023;
+  --ina-purple: #4C4160;
+  --ina-light-purple: #8B30F5;
+  --ina-v-light-purple: #8c30f511;
 
   /* Fonts */
-  --size-h1: 30px;
+  --size-h1x: 56px;
+  --size-h1: 32px;
   --size-primary: 18px;
   --size-h2: 16px;
   --size-small: 12px;

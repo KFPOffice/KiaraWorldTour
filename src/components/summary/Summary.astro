@@ -1,0 +1,75 @@
+---
+import SectionHeader from '../text/SectionHeader.astro';
+import Blurb from '../text/Blurb.astro';
+import BigLink from '../text/BigLink.astro';
+import Section from '../section/Section.astro';
+import kiaraLive from "./kiara-live.png";
+
+const { translation } = Astro.props;
+
+---
+<style lang="scss">
+  .summary {
+    background-color: var(--kiara-light-blue);
+
+    :global(.wrapper) {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: var(--xx-spacing);
+      column-gap: var(--xx-spacing);
+    }
+
+
+    .description {
+      flex: 1 0 0;
+
+      .links {
+        display: inline-flex;
+        flex-direction: column;
+        row-gap: var(--l-spacing);
+        align-items: flex-start;
+      }
+    }
+
+    .image {
+      --translationY: var(--l-spacing);
+      --translationX: calc(-1 * var(--translationY));
+
+      padding: 0 0 var(--translationY) var(--translationY);
+
+      .wrapper {
+        flex: 0 0 auto;
+        width: 450px;
+  
+        border: 2px solid var(--kiara-blue);
+        border-radius: var(--x-border-radius);
+  
+  
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: var(--x-border-radius);
+          transform: translate(var(--translationX), var(--translationY));
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+</style>
+
+<Section id="summary" class="summary">
+  <div class="description">
+    <SectionHeader>{translation.helpUsBringVtuber}</SectionHeader>
+    <Blurb>{translation.helpUsBringVtuberDesc}</Blurb>
+    <div class="links">
+      <BigLink>{translation.findOutWhatsHappeningLink}</BigLink>
+      <BigLink>{translation.contactConLink2}</BigLink>
+    </div>
+  </div>
+  <div class="image">
+    <div class="wrapper">
+      <img src={kiaraLive} alt={translation.kairaLiveAlt} />
+    </div>
+  </div>
+</Section>
