@@ -4,12 +4,15 @@ import Blurb from '../text/Blurb.astro';
 import BigLink from '../text/BigLink.astro';
 import Section from '../section/Section.astro';
 import kiaraLive from "./kiara-live.png";
+import backdrop from './backdrop.png';
 
 const { translation } = Astro.props;
 
 ---
 <style lang="scss">
   .summary {
+    background-image: url(./backdrop.png);
+    background-size: 256px;
     background-color: var(--kiara-light-blue);
 
     :global(.wrapper) {
@@ -21,6 +24,7 @@ const { translation } = Astro.props;
 
 
     .description {
+      position: relative;
       flex: 1 0 0;
 
       .links {
@@ -29,6 +33,20 @@ const { translation } = Astro.props;
         row-gap: var(--l-spacing);
         align-items: flex-start;
       }
+
+      &:before {
+        
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(calc(-100% - var(--xxx-spacing)), 12px);
+        width: 134px;
+        height: 86px;
+        background-image: url(./decoration.png);
+        background-repeat: no-repeat;
+        background-position: left;
+    }
     }
 
     .image {
@@ -39,7 +57,7 @@ const { translation } = Astro.props;
 
       .wrapper {
         flex: 0 0 auto;
-        width: 450px;
+        max-width: 450px;
   
         border: 2px solid var(--kiara-blue);
         border-radius: var(--x-border-radius);
@@ -54,6 +72,8 @@ const { translation } = Astro.props;
         }
       }
     }
+
+
   }
 
 </style>
