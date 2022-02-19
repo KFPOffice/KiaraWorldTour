@@ -23,6 +23,10 @@ import logo from './background.png';
     min-height: var(--xxx-spacing);
     height: 100%;
 
+    .wrapper {
+      padding: 0 var(--m-spacing);
+    }
+
     .background {
       position: absolute;
       width: 100%;
@@ -45,6 +49,7 @@ import logo from './background.png';
     }
 
     .hero-title {
+
       margin: 0 auto;
       transform: translate(0, var(--xxx-spacing));
       aspect-ratio: 650/325;
@@ -74,9 +79,11 @@ import logo from './background.png';
   <div class="background">
     <div class="background-tile" />
   </div>
-  <div class="hero-title">
-    <div class="kiara-header">
-      <img src={logo} />
+  <div class="wrapper">
+    <div class="hero-title">
+      <div class="kiara-header">
+        <img src={logo} />
+      </div>
     </div>
   </div>
 </section>
