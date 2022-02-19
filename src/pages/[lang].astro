@@ -1,8 +1,7 @@
 ---
 import en from "./../translations/en.json";
 import hu from "./../translations/hu.json";
-import Index from './index.astro';
-import { Markdown } from 'astro/components';
+import Main from './main/Main.astro';
 
 
 export async function getStaticPaths() {
@@ -17,4 +16,4 @@ const {lang} = Astro.request.params;
 
 ---
   
-<Index lang={lang} />
+<Main lang={lang} />
