@@ -1,0 +1,45 @@
+---
+import Section from '../../../components/section/Section.astro';
+import Statistic from './Statistic.astro';
+
+const { translation } = Astro.props;
+
+---
+<style lang="scss">
+  .statistics {
+    background-color: var(--light-black);
+    padding: var(--l-spacing);
+    background-image: url(./ina.png);
+
+
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      row-gap: var(--x-spacing);
+      column-gap: var(--xx-spacing);
+  
+      .wrapper {
+      }
+    }
+  }
+
+</style>
+
+<Section id="summary" class="statistics">
+  <div class="wrapper">
+    <Statistic>
+      <span slot="header">{translation.statistic1}</span>
+      <span slot="desc">{translation.statistic1Desc}</span>
+    </Statistic>
+    <Statistic>
+      <span slot="header">{translation.statistic2}</span>
+      <span slot="desc">{translation.statistic2Desc}</span>
+    </Statistic>
+    <Statistic>
+      <span slot="header">{translation.statistic3}</span>
+      <span slot="desc">{translation.statistic3Desc}</span>
+    </Statistic>
+  </div>
+
+</Section>

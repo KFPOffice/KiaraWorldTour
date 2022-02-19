@@ -1,0 +1,28 @@
+---
+
+---
+<style lang="scss">
+  .statistic {
+    color: var(--white);
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--l-spacing);
+    background-image: url(./ina.png);
+
+    .header {
+      font-size: var(--size-h2);
+    }
+
+  }
+
+    .desc {
+      font-size: var(--size-small);
+    }
+
+</style>
+
+<div class="statistic">
+  <h2 class="header"><slot name="header" /></h2>
+  <p class="desc"><slot name="desc" /></p>
+</div>
