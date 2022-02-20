@@ -1,9 +1,10 @@
 ---
 import getTranslations from '../../translations/translations.js';
 import Header from '../../components/header/Header.astro';
+import Hero from './hero/Hero.astro';
 import Summary from './summary/Summary.astro';
 import Statistics from './statistics/Statistics.astro';
-import Hero from './hero/Hero.astro';
+import Events from './events/Events.astro';
 import Footer from '../../components/footer/Footer.astro';
 
 const {lang: lang } = Astro.props;
@@ -61,6 +62,7 @@ const translation = getTranslations(lang);
     <div class="contents">
       <Summary translation={translation} />
       <Statistics translation={translation} />
+      <Events translation={translation} />
       
         <!-- <h2>{translation.whatareVtubersTitle}</h2>
         <Markdown content={translation.whatareVtubersContent}/> -->

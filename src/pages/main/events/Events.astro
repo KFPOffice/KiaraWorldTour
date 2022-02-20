@@ -1,0 +1,46 @@
+---
+import Section from '../../../components/section/Section.astro';
+import SectionHeader from '../../../components/text/SectionHeader.astro';
+import Blurb from '../../../components/text/Blurb.astro';
+import kiararrucho from './kiararrucho.png';
+
+const { translation } = Astro.props;
+
+---
+<!-- <style lang="scss">
+  .events {
+    background: linear-gradient(90deg, rgba(255, 136, 14, 0.2) 0%, rgba(197, 236, 223, 0.2) 56.25%, rgba(158, 206, 218, 0.2) 71.88%, rgba(109, 169, 211, 0.2) 91.15%);
+
+
+    :global(.wrapper) {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: var(--xx-spacing);
+      column-gap: var(--xx-spacing);
+    }
+
+    .wrapper {
+      .image {
+        position: absolute;
+        background-color: orange;
+      }
+    }
+  }
+
+  .image {
+
+  }
+</style> -->
+
+<Section id="events" class="events">
+  <div class="love-me">
+    <SectionHeader>{translation.whatIsHappening}</SectionHeader>
+    <Blurb>{translation.whatIsHappeningDesc}</Blurb>
+  </div>
+</Section>
+<!-- <Section id="events">
+
+  <div class="image salmon">
+    <img alt={translation.kairaLiveAlt} />
+  </div>
+</Section> -->
