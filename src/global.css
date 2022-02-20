@@ -4,6 +4,7 @@
   /* Colours */
   --white: rgb(255, 255, 255);
   --light-white: rgba(255, 255, 255, 0.75);
+  --grey: #C9C9C9;
   --light-grey: rgba(184, 184, 184, 0.75);
   --black: rgb(0, 0, 0);
   --light-black: #232323;
@@ -27,6 +28,7 @@
   --mobile-width: 800px;
 
   /* Spacing */
+  --xxxx-spacing: 80px;
   --xxx-spacing: 60px;
   --xx-spacing: 40px;
   --x-spacing: 20px;

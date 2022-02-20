@@ -3,20 +3,84 @@ import Section from '../../../components/section/Section.astro';
 import SectionHeader from '../../../components/text/SectionHeader.astro';
 import Blurb from '../../../components/text/Blurb.astro';
 import kiararrucho from './kiararrucho.png';
+import hololive2022 from "./images/2022-hololive-super-expo.svg";
+import add from './add.svg';
+
+interface Event {
+  iconUrl: string; // img src.
+  description: string; // The name of the event.
+  date: string; // When the event started.
+  href: string; // Website url for the event. (e.g. https://www.dokomi.de/)
+}
+
+interface EventsByYear {
+  [key: string]: Event[];
+}
+
+const sortDates = (d1: string, d2: string) => (new Date(d2).getTime() - new Date(d1).getTime());
+
+const events: Event[] = [
+  {
+    iconUrl: hololive2022,
+    description: "hololive SUPER EXPO",
+    date: "2022-03-20",
+    href: "https://hololivesuperexpo.hololivepro.com/",
+  },
+  {
+    iconUrl: hololive2022,
+    description: "hololive SUPER EXPO",
+    date: "2021-03-20",
+    href: "https://hololivesuperexpo.hololivepro.com/",
+  },
+  {
+    iconUrl: hololive2022,
+    description: "hololive SUPER EXPO",
+    date: "2021-03-20",
+    href: "https://hololivesuperexpo.hololivepro.com/",
+  },
+  {
+    iconUrl: hololive2022,
+    description: "hololive SUPER EXPO",
+    date: "2021-03-20",
+    href: "https://hololivesuperexpo.hololivepro.com/",
+  },
+  {
+    iconUrl: hololive2022,
+    description: "hololive SUPER EXPO",
+    date: "2021-03-20",
+    href: "https://hololivesuperexpo.hololivepro.com/",
+  },
+  {
+    iconUrl: hololive2022,
+    description: "hololive SUPER EXPO",
+    date: "2021-03-20",
+    href: "https://hololivesuperexpo.hololivepro.com/",
+  },
+];
+
+const eventsByYear: EventsByYear = [...events]
+  .reduce((eventsByYear, event) => {
+    const year = new Date(event.date).getFullYear();
+    if (eventsByYear[year] == null) {
+      eventsByYear[year] = [];
+    }
+    eventsByYear[year].push(event);
+    return eventsByYear;
+  }, {});
 
 const { translation } = Astro.props;
 
 ---
-<!-- <style lang="scss">
+<style lang="scss">
   .events {
     background: linear-gradient(90deg, rgba(255, 136, 14, 0.2) 0%, rgba(197, 236, 223, 0.2) 56.25%, rgba(158, 206, 218, 0.2) 71.88%, rgba(109, 169, 211, 0.2) 91.15%);
-
 
     :global(.wrapper) {
       display: flex;
       flex-wrap: wrap;
-      row-gap: var(--xx-spacing);
-      column-gap: var(--xx-spacing);
+      row-gap: var(--xxx-spacing);
+      column-gap: var(--xxx-spacing);
+      flex-direction: column;
     }
 
     .wrapper {
@@ -25,22 +89,187 @@ const { translation } = Astro.props;
         background-color: orange;
       }
     }
+
+    .description {
+      display: flex;
+      column-gap: var(--xx-spacing);
+      flex-wrap: wrap;
+
+      .description-text {
+        display: flex;
+        flex-direction: column;
+        max-width: 675px;
+        row-gap: var(--xx-spacing);
+      }
+
+
+      .description-image {
+        position: relative;
+        max-width: 200px;
+        img {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          transform: translate(-10%, 33%);
+
+          /* We want it to be about 500px. However, mobile width may be less than 500px, so limit size to 100vw */
+          width: 540px;
+          max-width: 100vw; 
+        }
+      }
+    }
+
+    .event-data {
+      display: flex;
+      flex-direction: column;
+      row-gap: var(--xx-spacing);
+
+      .event-slider {
+        display: flex;
+        flex-direction: column;
+        row-gap: var(--x-spacing);
+
+        h2 {
+          margin: 0;
+        }
+
+        .event-list {
+          display: flex;
+          flex-wrap: wrap;
+          column-gap: var(--xx-spacing);
+          row-gap: var(--xx-spacing);
+
+          .an-event {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            row-gap: var(--l-spacing);
+            justify-content: center;
+            align-items: center;
+
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+            text-decoration: none;
+            color: var(--black);
+            font-weight: bold;
+            font-size: var(--size-small);
+            border-radius: var(--x-border-radius);
+            background-color: rgba(255, 255, 255, 0.4);
+            transition: 0.3s ease-in background;
+
+
+            span {
+              flex: 1 0 0;
+              height: 0;
+              text-overflow: ellipsis;
+            }
+  
+            img {
+              width: 75px;
+              height: 75px;
+              object-fit: contain;
+            }
+
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.9);
+            }
+          }
+
+          .your-event {
+            /* margin-left: calc(-1 * var(--x-spacing)); */
+            display: flex;
+            column-gap: var(--l-spacing);
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            color: var(--black);
+            font-weight: bold;
+            font-size: var(--size-h2);
+            transition: 0.3s ease-in background;
+            padding: var(--x-spacing);
+            border-radius: var(--x-border-radius);
+
+            .add-event-image {
+              display: flex;
+              flex-direction: column;
+              row-gap: var(--l-spacing);
+              justify-content: center;
+              align-items: center;
+
+              background-color: var(--grey);
+              border-radius: var(--x-border-radius);
+
+              width: calc(150px - 2 * var(--x-spacing));
+              height: calc(150px - 2 * var(--x-spacing));
+
+              text-align: center;
+              text-decoration: none;
+              color: var(--black);
+              font-weight: bold;
+              font-size: var(--size-small);
+
+              img {
+                width: 40px;
+                height: 40px;
+              }
+            }
+
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.9);
+            }
+          }
+        }
+
+
+      }
+
+    }
   }
 
-  .image {
+  @media (max-width: 1280px) {
+    .description-image {
+      /* Kiara is too wide for mobile view. Remove her from the picture. */
+      display: none;
+    }
 
   }
-</style> -->
+</style>
 
 <Section id="events" class="events">
-  <div class="love-me">
-    <SectionHeader>{translation.whatIsHappening}</SectionHeader>
-    <Blurb>{translation.whatIsHappeningDesc}</Blurb>
+  <div class="description">
+    <div class="description-text">
+      <SectionHeader>{translation.whatIsHappening}</SectionHeader>
+      <Blurb>{translation.whatIsHappeningDesc}</Blurb>
+    </div>
+    <div class="description-image">
+      <img src={kiararrucho} alt={translation.bigKiaraAlt} />
+    </div>
+  </div>
+  <div class="event-data">
+    {Object.entries(eventsByYear)
+      .sort((a, b) => sortDates(a[0], b[0]))
+      .map(([year, events], i) => (
+        <div class="event-slider">
+          <h2>{year}</h2>
+          <div class="event-list">
+            {events
+              .sort((a, b) => sortDates(a.date, b.date))
+              .map(event => (
+                <a class="an-event" href={event.href}>
+                  <img src={event.iconUrl} alt={event.description} />
+                  <span>{event.description}</span>
+                </a>
+              ))}
+            {i !== 0 ? undefined : (
+              <a class="your-event" href="#contact-cover">
+                <div class="add-event-image"><img src={add} alt={translation.getInvolved} /></div>
+                <span class="add-event-text">{translation.getInvolved}</span>
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
   </div>
 </Section>
-<!-- <Section id="events">
-
-  <div class="image salmon">
-    <img alt={translation.kairaLiveAlt} />
-  </div>
-</Section> -->
