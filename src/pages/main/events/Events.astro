@@ -257,13 +257,13 @@ const { translation } = Astro.props;
             {events
               .sort((a, b) => sortDates(a.date, b.date))
               .map(event => (
-                <a class="an-event" href={event.href}>
+                <a class="an-event" href={event.href} target="_blank">
                   <img src={event.iconUrl} alt={event.description} />
                   <span>{event.description}</span>
                 </a>
               ))}
             {i !== 0 ? undefined : (
-              <a class="your-event" href="#contact-cover">
+              <a class="your-event" href="#contact-cover" target="_blank">
                 <div class="add-event-image"><img src={add} alt={translation.getInvolved} /></div>
                 <span class="add-event-text">{translation.getInvolved}</span>
               </a>
