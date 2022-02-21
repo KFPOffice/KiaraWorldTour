@@ -2,6 +2,18 @@
 import Section from '../../../components/section/Section.astro';
 import SectionHeader from '../../../components/text/SectionHeader.astro';
 import Blurb from '../../../components/text/Blurb.astro';
+import Reel, { Image } from '../../../components/reel/Reel.tsx';
+import Liner from './liner.png';
+import KiaraLive from './images/kiara-live.png';
+
+const images: Image[] = [
+  {
+    url: KiaraLive,
+    description: "GGS on the big screen.",
+    attributionText: "GGS",
+    attributionUrl: "https://twitter.com/takanashikiara",
+  }
+];
 
 const { translation } = Astro.props;
 
@@ -9,20 +21,37 @@ const { translation } = Astro.props;
 
 <style lang="scss">
   .gallery {
-    .description {
-      
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(60.69deg, #2210AA 0%, #0058FF 100%);
+
+    :global(.wrapper) {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: var(--xxx-spacing);
+      column-gap: var(--xxx-spacing);
+      flex-direction: column;
+    }
+
+    :global(.section-header),
+    :global(.blurb) {
+      color: var(--light-white);
+    }
+
+    .reel {
+      background-color: orange;
+      width: 100%;
+      min-height: 30vw;
     }
   }
-
 </style>
 
 <Section id="gallery" class="gallery">
   <div class="description">
     <SectionHeader>{translation.helpUsBringVtuber}</SectionHeader>
     <Blurb>{translation.helpUsBringVtuberDesc}</Blurb>
-    <div class="reel">
-
-    </div>
   </div>
-
+  <Reel client:visible images={images} />
 </Section>
