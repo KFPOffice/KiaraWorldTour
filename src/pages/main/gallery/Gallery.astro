@@ -1,0 +1,28 @@
+---
+import Section from '../../../components/section/Section.astro';
+import SectionHeader from '../../../components/text/SectionHeader.astro';
+import Blurb from '../../../components/text/Blurb.astro';
+
+const { translation } = Astro.props;
+
+---
+
+<style lang="scss">
+  .gallery {
+    .description {
+      
+    }
+  }
+
+</style>
+
+<Section id="gallery" class="gallery">
+  <div class="description">
+    <SectionHeader>{translation.helpUsBringVtuber}</SectionHeader>
+    <Blurb>{translation.helpUsBringVtuberDesc}</Blurb>
+    <div class="reel">
+
+    </div>
+  </div>
+
+</Section>
