@@ -2,8 +2,10 @@
 import Section from '../../../components/section/Section.astro';
 import SectionHeader from '../../../components/text/SectionHeader.astro';
 import Blurb from '../../../components/text/Blurb.astro';
-import kiararrucho from './kiararrucho.png';
 import hololive2022 from "./images/2022-hololive-super-expo.svg";
+import add from './add.svg';
+import kiararrucho from './images/kiararrucho.png';
+
 import AnimeNYC from "./images/AnimeNYC.png";
 import digikomi from "./images/digikomi.png";
 import calgari from "./images/calgari.png";
@@ -14,8 +16,20 @@ import boston from "./images/boston.png";
 import orlando from "./images/orlando.png";
 import dallas from "./images/dallas.png";
 import youmacon from "./images/youmacon.png";
-import add from './add.svg';
 
+/*
+let digikomi=""
+let AnimeNYC=""
+let calgari=""
+let dokomi=""
+let canada=""
+let AX=""
+let boston=""
+let orlando=""
+let dallas=""
+let youmacon="";
+
+*/
 interface Event {
   iconUrl: string; // img src.
   description: string; // The name of the event.
@@ -91,10 +105,16 @@ const events: Event[] = [
     href: "https://www.youmacon.com/",
   },
   {
-    iconUrl: animenyc,
+    iconUrl: AnimeNYC,
     description: "Anime NYC",
     date: "2021-11-19",
     href: "https://animenyc.com/",
+  },
+  {
+    iconUrl: hololive2022,
+    description: "hololive SUPER EXPO",
+    date: "2022-03-20",
+    href: "https://hololivesuperexpo.hololivepro.com/",
   },
 ];
 
