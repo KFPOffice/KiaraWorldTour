@@ -5,13 +5,27 @@ import Blurb from '../../../components/text/Blurb.astro';
 import Reel, { Image } from '../../../components/reel/Reel.tsx';
 import Liner from './liner.png';
 import KiaraLive from './images/kiara-live.png';
+import Daisy from './images/daisy-dankeshoen.jpg';
+import Dom from './images/dominik-dankeshoen.jpg';
 
 const images: Image[] = [
   {
     url: KiaraLive,
-    description: "GGS on the big screen.",
-    attributionText: "GGS",
+    description: "Takanashi Kiara is projecting",
+    attributionText: "@takanashikiara",
     attributionUrl: "https://twitter.com/takanashikiara",
+  },
+  {
+    url: Daisy,
+    description: "Ina in a room",
+    attributionText: "@ninomaeinanis",
+    attributionUrl: "https://twitter.com/ninomaeinanis ",
+  },
+    {
+    url: Dom,
+    description: "Why are there legos on the floor...?  Thanks to everyone who helps me out and encourages me 🧡 Gibus, 😭 your 🎩 almost got blown away💨 See Ko-Fi for projects",
+    attributionText: "@Dominik_KFBeats",
+    attributionUrl: "https://twitter.com/Dominik_KFBeats ",
   }
 ];
 
@@ -25,7 +39,23 @@ const { translation } = Astro.props;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    background-size: 150px;
     background: linear-gradient(60.69deg, #2210AA 0%, #0058FF 100%);
+    z-index: 1;
+
+    &:before {
+      z-index: -1;
+      position:absolute;
+      content: '';
+      left:0;
+      top:0;
+      width: 100%;
+      height: 100%;
+      background: url(liner3.png);
+      background-size: 250px;
+      opacity: 0.2;
+
+    }
 
     :global(.wrapper) {
       display: flex;
@@ -33,6 +63,7 @@ const { translation } = Astro.props;
       row-gap: var(--xxx-spacing);
       column-gap: var(--xxx-spacing);
       flex-direction: column;
+      z-index: 1;
     }
 
     :global(.section-header),
@@ -50,8 +81,8 @@ const { translation } = Astro.props;
 
 <Section id="gallery" class="gallery">
   <div class="description">
-    <SectionHeader>{translation.helpUsBringVtuber}</SectionHeader>
-    <Blurb>{translation.helpUsBringVtuberDesc}</Blurb>
+    <SectionHeader>{translation.whereInTheWorld}</SectionHeader>
+    <Blurb>{translation.whereInTheWorldDesc}</Blurb>
   </div>
-  <Reel client:visible images={images} />
+  <Reel client:load images={images} />
 </Section>

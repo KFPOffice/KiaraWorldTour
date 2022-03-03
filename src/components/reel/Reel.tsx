@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
+import ReactDOM from "react-dom";
+import { mod } from "../../util.js";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 export interface Image {
   url: string; // Url for loading the image.
@@ -20,34 +24,91 @@ const Reel = ({ images }: Props) => {
       <style>
         {`
           .reel {
+            --translationY: var(--l-spacing);
+            --translationX: calc(-1 * var(--translationY));
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: var(--x-spacing);
           }
 
-          .reel-frame {
-            width: 100%;
-            min-height: 30vw;
-            background-color: orange;
+          .reel-wrapper {
+      
+            border: 2px solid var(--kiara-blue);
+            border-radius: var(--x-border-radius);
+
+            transform: translate(calc(-1 * var(--translationX)), calc(-1 * var(--translationY)));
           }
-          .reel-frame ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+
+          .reel-wrapper > * {
+            transform: translate(var(--translationX), var(--translationY));
+            border-radius: var(--x-border-radius);
+            overflow: hidden;
+          }
+
+
+          .reel-image {
+            max-width: 100%;
+          }
+          .reel-image img {
+            max-height: 500px;
+            object-fit: cover;
+          }
+
+          .image-label {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            row-gap: var(--m-spacing);
+          }
+
+          .image-description {
+            color: var(--white);
+            font-size: var(--size-h2);
+            text-align: center;
+          }
+
+          .image-attribution {
+            color: var(--light-white);
+            font-size: var(--size-small);
+            text-decoration: none;
+          }
+          .image-attribution:hover {
+            text-decoration: underline;
           }
         `}
       </style>
-      <div class="reel">
-        <div class="reel-frame">
-          <ul class="reel-list">
+      <div className="reel">
+        <div className="reel-wrapper">
+          <Carousel
+            autoPlay
+            emulateTouch
+            showThumbs={false}
+            interval={8000}
+            showStatus={false}
+            infiniteLoop
+            onChange={(index) => setIndex(index)}
+          >
             {images.map((i) => (
-              <li>
+              <div className="reel-image">
                 <img src={i.url} alt={i.description} />
-              </li>
+              </div>
             ))}
-          </ul>
+          </Carousel>
         </div>
-        <div>{selectedImage.attributionText}</div>
+        <div className="image-label">
+          <div className="image-description">{selectedImage.description}</div>
+          <a className="image-attribution" href={selectedImage.attributionUrl}>
+            {selectedImage.attributionText}
+          </a>
+        </div>
       </div>
     </>
   );
 };
+{
+}
 
 export default Reel;
