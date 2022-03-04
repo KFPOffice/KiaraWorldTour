@@ -1,0 +1,68 @@
+---
+import Section from '../../../components/section/Section.astro';
+import SectionHeader from '../../../components/text/SectionHeader.astro';
+import Blurb from '../../../components/text/Blurb.astro';
+import Fan from './real-fan.png';
+
+const { translation } = Astro.props;
+
+
+---
+
+<style lang="scss">
+  .references {
+
+
+    .desc-image {
+      display: flex;
+      flex-direction: row-reverse;
+  
+      .description {
+        text-align: end;
+        color: var(--ina-purple);
+  
+        :global(.section-header) {
+          position: relative;
+          color: var(--ina-purple);
+
+        }
+        .deco-quote {
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-size: 200px;
+          color: var(--ina-purple);
+          opacity: 0.5;
+          font-family: Consolas;
+          transform: translate(-200%, -30%);
+        }
+      }
+  
+      .fan {
+        width: 200px;
+        height: 200px;
+        filter: opacity(50%);
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .fan {
+        display: none;
+      }
+    }
+  }
+
+
+
+
+</style>
+
+<Section id="references" class="references">
+  <div class="desc-image">
+    <div class="description">
+      <SectionHeader><span class="deco-quote">“</span>{translation.storiesFromTheFans}</SectionHeader>
+      <Blurb>{translation.storiesFromTheFansDesc}</Blurb>
+    </div>
+    <img class="fan" src={Fan} alt="Fan" />
+  </div>
+</Section>
