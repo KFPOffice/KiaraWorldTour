@@ -2,10 +2,34 @@
 import Section from '../../../components/section/Section.astro';
 import SectionHeader from '../../../components/text/SectionHeader.astro';
 import Blurb from '../../../components/text/Blurb.astro';
-import kiararrucho from './kiararrucho.png';
 import hololive2022 from "./images/2022-hololive-super-expo.svg";
 import add from './add.svg';
+import kiararrucho from './images/kiararrucho.png';
 
+import AnimeNYC from "./images/AnimeNYC.png";
+import digikomi from "./images/digikomi.png";
+import calgari from "./images/calgari.png";
+import dokomi from "./images/dokomi.png";
+import canada from "./images/canada.png";
+import AX from "./images/AX.png";
+import boston from "./images/boston.png";
+import orlando from "./images/orlando.png";
+import dallas from "./images/dallas.png";
+import youmacon from "./images/youmacon.png";
+
+/*
+let digikomi=""
+let AnimeNYC=""
+let calgari=""
+let dokomi=""
+let canada=""
+let AX=""
+let boston=""
+let orlando=""
+let dallas=""
+let youmacon="";
+
+*/
 interface Event {
   iconUrl: string; // img src.
   description: string; // The name of the event.
@@ -21,39 +45,75 @@ const sortDates = (d1: string, d2: string) => (new Date(d2).getTime() - new Date
 
 const events: Event[] = [
   {
+    iconUrl: digikomi,
+    description: "DigiKomi",
+    date: "2021-06-13",
+    href: "https://digi.dokomi.de/en",
+  },
+  {
+    iconUrl: AX,
+    description: "Anime Expo Lite",
+    date: "2021-07-03",
+    href: "https://lite.anime-expo.org/",
+  },
+  {
+    iconUrl: dokomi,
+    description: "DoKomi",
+    date: "2021-08-07",
+    href: "https://www.dokomi.de/en",
+  },
+  {
+    iconUrl: orlando,
+    description: "MEGACON Orlando",
+    date: "2021-08-12",
+    href: "https://fanexpohq.com/megaconorlando/",
+  },
+  {
+    iconUrl: boston,
+    description: "FAN EXPO Boston",
+    date: "2021-09-03",
+    href: "https://fanexpohq.com/fanexpoboston/",
+  },
+  {
+    iconUrl: calgari,
+    description: "Calgary Expo",
+    date: "2021-09-10",
+    href: "https://fanexpohq.com/calgaryexpo/",
+  },
+  {
+    iconUrl: dallas,
+    description: "FAN EXPO Dallas",
+    date: "2021-09-17",
+    href: "https://fanexpohq.com/calgaryexpo/",
+  },
+  {
+    iconUrl: digikomi,
+    description: "Digikomi x Amazon",
+    date: "2021-10-09",
+    href: "https://digi.dokomi.de/en",
+  },
+  {
+    iconUrl: canada,
+    description: "FAN EXPO Canada",
+    date: "2021-10-22",
+    href: "https://fanexpohq.com/fanexpocanada/",
+  },
+  {
+    iconUrl: youmacon,
+    description: "Youmacon",
+    date: "2021-10-28",
+    href: "https://www.youmacon.com/",
+  },
+  {
+    iconUrl: AnimeNYC,
+    description: "Anime NYC",
+    date: "2021-11-19",
+    href: "https://animenyc.com/",
+  },
+  {
     iconUrl: hololive2022,
     description: "hololive SUPER EXPO",
     date: "2022-03-20",
-    href: "https://hololivesuperexpo.hololivepro.com/",
-  },
-  {
-    iconUrl: hololive2022,
-    description: "hololive SUPER EXPO",
-    date: "2021-03-20",
-    href: "https://hololivesuperexpo.hololivepro.com/",
-  },
-  {
-    iconUrl: hololive2022,
-    description: "hololive SUPER EXPO",
-    date: "2021-03-20",
-    href: "https://hololivesuperexpo.hololivepro.com/",
-  },
-  {
-    iconUrl: hololive2022,
-    description: "hololive SUPER EXPO",
-    date: "2021-03-20",
-    href: "https://hololivesuperexpo.hololivepro.com/",
-  },
-  {
-    iconUrl: hololive2022,
-    description: "hololive SUPER EXPO",
-    date: "2021-03-20",
-    href: "https://hololivesuperexpo.hololivepro.com/",
-  },
-  {
-    iconUrl: hololive2022,
-    description: "hololive SUPER EXPO",
-    date: "2021-03-20",
     href: "https://hololivesuperexpo.hololivepro.com/",
   },
 ];
