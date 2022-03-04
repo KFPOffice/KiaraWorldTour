@@ -31,6 +31,7 @@ const Reel = ({ images }: Props) => {
             flex-direction: column;
             align-items: center;
             row-gap: var(--x-spacing);
+            margin-right: calc(-1 * var(--translationX));
           }
 
           .reel-wrapper {
@@ -50,10 +51,23 @@ const Reel = ({ images }: Props) => {
 
           .reel-image {
             max-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
           }
-          .reel-image img {
+          .reel-image-primary {
             max-height: 500px;
-            object-fit: cover;
+            object-fit: contain;
+          }
+
+          .reel-image-secondary {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            filter: blur(20px) brightness(0.7);
+            object-fit: cover !important;
+            opacity: 0.8;
           }
 
           .image-label {
@@ -83,17 +97,26 @@ const Reel = ({ images }: Props) => {
       <div className="reel">
         <div className="reel-wrapper">
           <Carousel
-            autoPlay
-            emulateTouch
             showThumbs={false}
-            interval={8000}
             showStatus={false}
+            emulateTouch
             infiniteLoop
             onChange={(index) => setIndex(index)}
+            autoPlay
+            interval={8000}
           >
             {images.map((i) => (
               <div className="reel-image">
-                <img src={i.url} alt={i.description} />
+                <img
+                  className="reel-image-secondary"
+                  src={i.url}
+                  alt={i.description}
+                />
+                <img
+                  className="reel-image-primary"
+                  src={i.url}
+                  alt={i.description}
+                />
               </div>
             ))}
           </Carousel>

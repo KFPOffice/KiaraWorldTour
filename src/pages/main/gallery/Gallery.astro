@@ -7,6 +7,7 @@ import Liner from './liner.png';
 import KiaraLive from './images/kiara-live.png';
 import Daisy from './images/daisy-dankeshoen.jpg';
 import Dom from './images/dominik-dankeshoen.jpg';
+import Temp from './images/kwt-logo.png';
 
 const images: Image[] = [
   {
@@ -71,18 +72,44 @@ const { translation } = Astro.props;
       color: var(--light-white);
     }
 
+    .desc-image {
+      display: flex;
+      column-gap: var(--xxxx-spacing);
+      flex-wrap: wrap;
+
+      .description {
+        flex: 1 1 0;
+      }
+
+      .world {
+        max-width: 290px;
+        flex: 0 0 auto;
+      }
+    }
+
     .reel {
       background-color: orange;
       width: 100%;
       min-height: 30vw;
     }
+
+      @media (max-width: 1280px) {
+      .world {
+        display: none;
+      }
+
+  }
   }
 </style>
 
 <Section id="gallery" class="gallery">
+  <div class="desc-image">
   <div class="description">
     <SectionHeader>{translation.whereInTheWorld}</SectionHeader>
     <Blurb>{translation.whereInTheWorldDesc}</Blurb>
+  </div>
+  <img class="world" src={Temp} alt="temp" />
+  
   </div>
   <Reel client:load images={images} />
 </Section>
